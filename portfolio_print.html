@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nikhil Sharma — Portfolio PDF</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color: #1a1a2e;
+      background: white;
+    }
+
+    /* === PAGE TEMPLATE === */
+    .pdf-page {
+      width: 210mm;
+      height: 297mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pdf-page:last-child {
+      page-break-after: auto;
+    }
+
+    /* BG + Overlay */
+    .pdf-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .pdf-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,10,15,0.55);
+      z-index: 1;
+    }
+    .pdf-overlay-heavy {
+      background: rgba(10,10,15,0.72);
+    }
+
+    .pdf-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Typography */
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .label {
+      font-size: 8pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3pt;
+      color: #c9a86c;
+      margin-bottom: 8mm;
+    }
+    .title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28pt;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 6mm;
+    }
+    .body-text {
+      font-size: 10pt;
+      line-height: 1.85;
+      max-width: 85mm;
+    }
+    .body-text p { margin-bottom: 4mm; }
+    .body-text strong { font-weight: 600; }
+    .body-text blockquote {
+      border-left: 2px solid #c9a86c;
+      padding-left: 5mm;
+      margin: 5mm 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 10.5pt;
+      line-height: 1.7;
+    }
+
+    .accent { color: #c9a86c; }
+    .text-white { color: #f5f2ed; }
+    .text-muted { color: rgba(255,255,255,0.6); }
+
+    /* === PAGE 1: COVER === */
+    .page-cover {
+      background: #0a0a0f;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .cover-eyebrow {
+      font-size: 7pt;
+      letter-spacing: 3pt;
+      text-transform: uppercase;
+      color: #c9a86c;
+      margin-bottom: 8mm;
+    }
+    .cover-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 60pt;
+      font-weight: 900;
+      color: white;
+      line-height: 0.95;
+      margin-bottom: 6mm;
+    }
+    .cover-line {
+      width: 15mm;
+      height: 1.5px;
+      background: #c9a86c;
+      margin: 0 auto 6mm;
+    }
+    .cover-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 13pt;
+      color: white;
+      line-height: 1.6;
+    }
+    .cover-tagline em { color: #e8c87a; }
+    .cover-role {
+      font-size: 8pt;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6mm;
+      line-height: 1.8;
+      letter-spacing: 0.5pt;
+    }
+    .cover-footer {
+      position: absolute;
+      bottom: 8mm;
+      left: 10mm;
+      right: 10mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 2pt;
+      color: rgba(255,255,255,0.4);
+      z-index: 2;
+    }
+
+    /* === PAGE 2: ABOUT === */
+    .page-about {
+      background: #f5f2ed;
+      flex-direction: row;
+    }
+    .about-photo-col {
+      width: 45%;
+      overflow: hidden;
+    }
+    .about-photo-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .about-text-col {
+      width: 55%;
+      padding: 15mm 12mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-stats {
+      display: flex;
+      gap: 10mm;
+      margin-top: 8mm;
+      padding-top: 6mm;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 14pt;
+      font-weight: 700;
+      color: #8b7355;
+    }
+    .stat-lbl {
+      font-size: 6.5pt;
+      text-transform: uppercase;
+      letter-spacing: 1pt;
+      color: rgba(26,26,46,0.5);
+      margin-top: 1mm;
+    }
+
+    /* === PROJECT SPREAD === */
+    .page-project {
+      background: #111118;
+      flex-direction: row;
+    }
+    .project-text {
+      width: 50%;
+      padding: 15mm 10mm;
+      color: #f5f2ed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .project-visual {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10mm;
+    }
+    .placeholder-box {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border: 1px dashed rgba(255,255,255,0.15);
+      border-radius: 3mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 9pt;
+      text-align: center;
+      gap: 2mm;
+    }
+    .placeholder-box .icon { font-size: 20pt; }
+    .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 11pt;
+      color: #c9a86c;
+      margin-bottom: 5mm;
+    }
+
+    /* === DETAIL CARDS PAGE === */
+    .page-cards {
+      background: #f5f2ed;
+      padding: 12mm;
+    }
+    .cards-grid {
+      display: flex;
+      gap: 5mm;
+      margin-top: 8mm;
+    }
+    .detail-card {
+      flex: 1;
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 3mm;
+      padding: 6mm;
+    }
+    .detail-card .icon { font-size: 16pt; margin-bottom: 3mm; }
+    .detail-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 11pt;
+      font-weight: 600;
+      margin-bottom: 3mm;
+    }
+    .detail-card p {
+      font-size: 8.5pt;
+      line-height: 1.65;
+      color: rgba(26,26,46,0.65);
+    }
+    .screenshots-row {
+      display: flex;
+      gap: 5mm;
+      margin-top: 6mm;
+    }
+    .screenshot-placeholder {
+      flex: 1;
+      aspect-ratio: 16/10;
+      border: 1px dashed rgba(0,0,0,0.1);
+      border-radius: 3mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(0,0,0,0.3);
+      font-size: 8pt;
+      text-align: center;
+    }
+
+    /* === QUOTE PAGE === */
+    .page-quote {
+      background: #0a0a0f;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20mm;
+    }
+    .giant-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 16pt;
+      font-style: italic;
+      line-height: 1.7;
+      color: #f5f2ed;
+      max-width: 140mm;
+    }
+
+    /* === GAME DEV === */
+    .page-gamedev {
+      background: #f5f2ed;
+      padding: 12mm;
+    }
+    .gamedev-grid {
+      display: flex;
+      gap: 5mm;
+      margin-top: 8mm;
+    }
+    .gamedev-card {
+      flex: 1;
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 3mm;
+      overflow: hidden;
+    }
+    .gamedev-img {
+      aspect-ratio: 16/10;
+      background: #ece6db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8pt;
+      color: rgba(0,0,0,0.3);
+    }
+    .gamedev-body {
+      padding: 5mm;
+    }
+    .gamedev-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 11pt;
+      margin-bottom: 2mm;
+    }
+    .gamedev-body p {
+      font-size: 8.5pt;
+      line-height: 1.6;
+      color: rgba(26,26,46,0.6);
+    }
+    .gamedev-body .dq {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 9pt;
+      color: #8b7355;
+      margin-top: 3mm;
+    }
+
+    /* === PAINTINGS === */
+    .page-paintings {
+      background: #0a0a0f;
+      padding: 12mm;
+      justify-content: center;
+      align-items: center;
+    }
+    .paintings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      max-width: 170mm;
+      margin-top: 8mm;
+    }
+    .painting-cell {
+      border-radius: 2mm;
+      overflow: hidden;
+      position: relative;
+    }
+    .painting-cell img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+    .painting-cell .caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 3mm;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    }
+    .painting-cell .caption h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 9pt;
+      color: white;
+    }
+    .painting-cell .caption p {
+      font-size: 6.5pt;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* === REFLECTION === */
+    .page-reflection {
+      background: #111118;
+      flex-direction: row;
+    }
+    .refl-img {
+      width: 42%;
+      overflow: hidden;
+    }
+    .refl-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .refl-text {
+      width: 58%;
+      padding: 15mm 12mm;
+      color: #f5f2ed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* === CLOSING === */
+    .page-closing {
+      background: #0a0a0f;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20mm;
+    }
+    .contact-row {
+      display: flex;
+      gap: 5mm;
+      justify-content: center;
+      margin-top: 10mm;
+    }
+    .contact-item {
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20mm;
+      padding: 3mm 8mm;
+      font-size: 8pt;
+      color: rgba(255,255,255,0.7);
+    }
+    .closing-footer {
+      position: absolute;
+      bottom: 8mm;
+      font-size: 7pt;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 1pt;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: COVER -->
+  <div class="pdf-page page-cover">
+    <div class="pdf-bg" style="background-image: url('assets/hero_bg.png');"></div>
+    <div class="pdf-overlay"></div>
+    <div class="pdf-content" style="justify-content: center; align-items: center; text-align: center;">
+      <div class="cover-eyebrow">Portfolio — MDes XR Design</div>
+      <div class="cover-name">Nikhil<br>Sharma</div>
+      <div class="cover-line"></div>
+      <div class="cover-tagline">Making dreams into real experiences —<br><em>one frame at a time.</em></div>
+      <div class="cover-role">Game Developer → XR Designer<br>Builder by training. Designer by choice.</div>
+    </div>
+    <div class="cover-footer">
+      <span>IIT Jodhpur</span>
+      <span>2026</span>
+    </div>
+  </div>
+
+  <!-- PAGE 2: ABOUT ME -->
+  <div class="pdf-page page-about" style="flex-direction: row;">
+    <div class="about-photo-col">
+      <img src="assets/nikhil_photo.jpg" alt="Nikhil Sharma">
+    </div>
+    <div class="about-text-col">
+      <div class="label">About Me</div>
+      <div class="title" style="font-size: 24pt;">The Person<br>Behind the Pixels</div>
+      <div class="body-text">
+        <p>I got into games because I wanted to <strong>build worlds</strong>. Three years in, I realised I cared less about making things work and more about making them <strong>feel right</strong>.</p>
+        <blockquote>"I cleared CEED because I wanted to understand design properly — not just stumble into it while writing code."</blockquote>
+        <p>I paint when I'm not at a screen, mostly because it's the only place where I'm forced to <strong>slow down and really look</strong>.</p>
+        <p>Someday I want to run a studio where no one has to choose between being a designer and being an engineer.</p>
+      </div>
+      <div class="about-stats">
+        <div><div class="stat-num">3+</div><div class="stat-lbl">Years Experience</div></div>
+        <div><div class="stat-num">CEED</div><div class="stat-lbl">Qualified</div></div>
+        <div><div class="stat-num">Unity</div><div class="stat-lbl">Developer</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 3: XR PROJECT — THE QUESTION -->
+  <div class="pdf-page page-project" style="flex-direction: row;">
+    <div class="project-text">
+      <div class="label text-white" style="color: #c9a86c;">Project 01 — Flagship</div>
+      <div class="title text-white" style="font-size: 24pt;">XR Indian Road<br>Simulator</div>
+      <div class="subtitle">Navigating Beautiful Chaos</div>
+      <div class="body-text text-white" style="color: rgba(255,255,255,0.8);">
+        <p>Indian roads are a sensory overload — a design problem no one has solved properly. What if you could <em>experience</em> that beautiful chaos in VR, feeling every honk, every swerve, every near-miss through your hands on virtual handlebars?</p>
+        <p>This project reimagines Indian road navigation as an immersive XR experience — where your body becomes the controller and the chaos becomes the design.</p>
+      </div>
+    </div>
+    <div class="project-visual">
+      <div class="placeholder-box">
+        <div class="icon">🎮</div>
+        <div>Simulator Screenshot<br>Coming Soon</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 4: XR PROJECT — DETAILS -->
+  <div class="pdf-page page-cards">
+    <div class="pdf-content">
+      <div class="cards-grid">
+        <div class="detail-card">
+          <div class="icon">🕹️</div>
+          <h3>The Interaction</h3>
+          <p>VR controllers become handlebars. Wrist rotation maps to throttle. Physical intuition meets digital world — making the player's body the controller.</p>
+        </div>
+        <div class="detail-card">
+          <div class="icon">🐄</div>
+          <h3>The World</h3>
+          <p>Cows, autos, aunties — not as decoration, but as unpredictable agents that force the player to read the environment.</p>
+        </div>
+        <div class="detail-card">
+          <div class="icon">🧠</div>
+          <h3>The Challenge</h3>
+          <p>Motion sickness is the biggest VR design constraint. Every speed curve had to be tuned to keep immersion without nausea.</p>
+        </div>
+      </div>
+      <div class="screenshots-row">
+        <div class="screenshot-placeholder">🏍️ Handlebar Mechanic</div>
+        <div class="screenshot-placeholder">🌆 Street Scene</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 5: XR PROJECT — REFLECTION -->
+  <div class="pdf-page page-quote">
+    <div class="pdf-bg" style="background-image: url('assets/paintings/painting1_hanuman.jpg');"></div>
+    <div class="pdf-overlay pdf-overlay-heavy"></div>
+    <div class="pdf-content" style="justify-content: center; align-items: center;">
+      <div class="label" style="color: rgba(255,255,255,0.6);">What I'd Do Differently</div>
+      <div class="giant-quote">
+        "If I started over, I'd spend more time on <span class="accent">audio design</span>.
+        The sounds of Indian roads — the layered honking, the vendors, the chaos —
+        are just as important as the visuals for immersion."
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 6: PROJECT 2 -->
+  <div class="pdf-page page-project" style="flex-direction: row;">
+    <div class="project-text">
+      <div class="label" style="color: #c9a86c;">Project 02</div>
+      <div class="title text-white" style="font-size: 24pt;">Your Second<br>Project</div>
+      <div class="body-text" style="color: rgba(255,255,255,0.8);">
+        <p>What was the question you were asking? Describe the core design challenge and what drove you to build this.</p>
+        <p>What did you build, what broke, what did you learn?</p>
+      </div>
+    </div>
+    <div class="project-visual">
+      <div class="placeholder-box">
+        <div class="icon">📐</div>
+        <div>Project 2 Screenshot<br>Add Your Image Here</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 7: PROJECT 2 DETAIL -->
+  <div class="pdf-page page-cards">
+    <div class="pdf-content">
+      <div class="cards-grid">
+        <div class="detail-card" style="flex: 1;">
+          <div class="icon">🔍</div>
+          <h3>What I Built</h3>
+          <p>Describe the project, the tools used, and the core mechanic or design decision.</p>
+        </div>
+        <div class="detail-card" style="flex: 1;">
+          <div class="icon">💡</div>
+          <h3>What I Learned</h3>
+          <p>What broke? What surprised you? What would you carry forward?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 8: GAME DEV -->
+  <div class="pdf-page page-gamedev">
+    <div class="pdf-content" style="justify-content: center;">
+      <div class="label" style="color: #8b7355;">Professional Work</div>
+      <div class="title" style="font-size: 22pt; text-align: center;">3 Years of<br>Game Development</div>
+      <div class="gamedev-grid">
+        <div class="gamedev-card">
+          <div class="gamedev-img">🎮 Project Screenshot</div>
+          <div class="gamedev-body">
+            <h3>Game Project One</h3>
+            <p>Brief description of the project — what it was, your role, and the platform.</p>
+            <div class="dq">"I made the enemy slower up close. It made players feel powerful."</div>
+          </div>
+        </div>
+        <div class="gamedev-card">
+          <div class="gamedev-img">🎮 Project Screenshot</div>
+          <div class="gamedev-body">
+            <h3>Game Project Two</h3>
+            <p>Brief description of the project — what it was, your role, and the platform.</p>
+            <div class="dq">"A design decision that shaped the player experience."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 9: PAINTINGS GALLERY -->
+  <div class="pdf-page page-paintings">
+    <div class="pdf-bg" style="background-image: url('assets/paintings/painting4_moonlit.jpg');"></div>
+    <div class="pdf-overlay pdf-overlay-heavy"></div>
+    <div class="pdf-content" style="justify-content: center; align-items: center;">
+      <div class="label" style="color: rgba(255,255,255,0.6);">Beyond The Screen</div>
+      <div class="title text-white" style="text-align: center; font-size: 28pt;">Paintings</div>
+      <div class="paintings-grid">
+        <div class="painting-cell">
+          <img src="assets/paintings/painting1_hanuman.jpg" alt="Hanuman">
+          <div class="caption"><h4>Hanuman — Sanjivani</h4><p>Inspired by Raja Ravi Verma</p></div>
+        </div>
+        <div class="painting-cell">
+          <img src="assets/paintings/painting4_moonlit.jpg" alt="Moonlit Solitude">
+          <div class="caption"><h4>Moonlit Solitude</h4><p>Acrylic on Canvas</p></div>
+        </div>
+        <div class="painting-cell">
+          <img src="assets/paintings/painting2_portrait.jpg" alt="Portrait">
+          <div class="caption"><h4>Portrait</h4><p>Acrylic on Canvas</p></div>
+        </div>
+        <div class="painting-cell">
+          <img src="assets/paintings/painting3_leopard.jpg" alt="Leopard">
+          <div class="caption"><h4>Leopard</h4><p>Acrylic on Canvas</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 10: PAINTING REFLECTION -->
+  <div class="pdf-page page-reflection" style="flex-direction: row;">
+    <div class="refl-img">
+      <img src="assets/paintings/painting1_hanuman.jpg" alt="Hanuman painting">
+    </div>
+    <div class="refl-text">
+      <div class="label" style="color: #c9a86c;">Reflection</div>
+      <div class="body-text" style="color: rgba(255,255,255,0.85); max-width: 100%;">
+        <p>This painting of Hanuman carrying the Sanjivani mountain was inspired by the works of <strong>Raja Ravi Verma</strong> — the way he brought mythology to life with emotion and realism.</p>
+        <blockquote>"I wanted to capture that same energy — divine power grounded in human feeling. Paintings like this remind me that the best design makes you feel something before you understand it."</blockquote>
+        <p>I paint when I'm not at a screen, mostly because it's the only place where I'm forced to slow down and <em>really look</em>. Each painting teaches me about observation, patience, and the gap between what you see and what you actually notice.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 11: WHY XR / CONTACT -->
+  <div class="pdf-page page-closing">
+    <div class="pdf-bg" style="background-image: url('assets/hero_bg.png');"></div>
+    <div class="pdf-overlay pdf-overlay-heavy"></div>
+    <div class="pdf-content" style="justify-content: center; align-items: center; text-align: center;">
+      <div class="label" style="color: rgba(255,255,255,0.6);">Why XR. Why Now. Why Jodhpur.</div>
+      <div class="title text-white" style="text-align: center;">The Next Chapter</div>
+      <div class="giant-quote" style="margin-top: 8mm;">
+        "Games taught me to build. Design will teach me to listen.
+        <span class="accent">XR is where both matter equally</span> —
+        and the rules aren't written yet. I want to help write them."
+      </div>
+      <div class="contact-row">
+        <div class="contact-item">📧 your.email@example.com</div>
+        <div class="contact-item">🔗 GitHub</div>
+        <div class="contact-item">🔗 LinkedIn</div>
+      </div>
+    </div>
+    <div class="closing-footer">© 2026 Nikhil Sharma. Designed with purpose.</div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nikhil Sharma — XR Designer & Game Developer. Portfolio for MDes in XR Design at IIT Jodhpur.">
+  <title>Nikhil Sharma — XR Design Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎮</text></svg>">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <a href="#hero" class="nav-logo">Nikhil Sharma</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#project1">Projects</a></li>
+      <li><a href="#gamedev">Game Dev</a></li>
+      <li><a href="#paintings">Paintings</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-img">
+      <img src="assets/hero_bg.png" alt="" aria-hidden="true">
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Portfolio</p>
+      <h1 class="hero-name">Nikhil<br>Sharma</h1>
+      <div class="hero-line"></div>
+      <p class="hero-tagline">Making dreams into real experiences — <em>one frame at a time.</em></p>
+      <p class="hero-sub">Game Developer → XR Designer &nbsp;·&nbsp; Builder by training. Designer by choice.</p>
+      <div class="hero-cta">
+        <a href="#project1" class="btn btn-dark">View My Work</a>
+        <a href="#contact" class="btn btn-outline-dark">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="section section-dark" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo-wrap reveal-left">
+          <img src="assets/nikhil_photo.jpg" alt="Nikhil Sharma" class="about-photo">
+        </div>
+        <div class="about-text reveal-right">
+          <p class="section-label">About Me</p>
+          <h2 class="section-title">The Person Behind<br>the Pixels</h2>
+          <div class="body-text">
+            <p>
+              Design has been part of my life for as long as I can remember. Growing up, 
+              I looked up to my uncle — a <strong>clay modeller at Hero</strong> — and spent hours filling 
+              notebooks with car sketches, trying to capture every curve and line.
+            </p>
+            <p>
+              In college, while everyone around me was learning web development, I found 
+              myself obsessed with <strong>making games</strong>. There was something about building 
+              interactive worlds that felt more real to me than anything else.
+            </p>
+            <blockquote>
+              "After working in the game industry, I realised I could do more — 
+              not just build what designers imagine, but become the one imagining."
+            </blockquote>
+            <p>
+              That's why I'm here. I want to <strong>learn design properly</strong>, gain real 
+              experience, and eventually open my own game design studio. That's the 
+              long-term dream — a place where great design and great engineering 
+              live under the same roof.
+            </p>
+          </div>
+          <div class="about-stats stagger-children">
+            <div class="stat"><span class="stat-num">3+</span><span class="stat-lbl">Years Exp</span></div>
+            <div class="stat"><span class="stat-num">CEED</span><span class="stat-lbl">Qualified</span></div>
+            <div class="stat"><span class="stat-num">Unity</span><span class="stat-lbl">Developer</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROJECT 1 -->
+  <section class="section" id="project1">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Featured Project</p>
+        <h2 class="section-title">XR Indian Road Simulator</h2>
+        <p class="section-subtitle">Navigating Beautiful Chaos</p>
+      </div>
+
+      <div class="project-intro reveal">
+        <p>
+          Indian roads are a sensory overload — a design problem no one has solved properly.
+          What if you could <em>experience</em> that beautiful chaos in VR, feeling every honk, 
+          every swerve, every near-miss through your hands on virtual handlebars?
+        </p>
+      </div>
+
+      <div class="project-hero reveal-scale">
+        <div class="placeholder-box">
+          <span>🎮</span>
+          <p>Simulator Screenshot — Coming Soon</p>
+        </div>
+      </div>
+
+      <div class="cards-row stagger-children">
+        <div class="card reveal">
+          <div class="card-icon">🕹️</div>
+          <h3>The Interaction</h3>
+          <p>VR controllers become handlebars. Wrist rotation maps to throttle. Physical intuition meets digital world.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">🐄</div>
+          <h3>The World</h3>
+          <p>Cows, autos, aunties — unpredictable agents that force the player to <em>read</em> the environment.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">🧠</div>
+          <h3>The Challenge</h3>
+          <p>Motion sickness: every speed curve, every camera movement tuned to keep immersion without nausea.</p>
+        </div>
+      </div>
+
+      <div class="screenshots-row stagger-children">
+        <div class="placeholder-box placeholder-wide reveal">
+          <span>🏍️</span><p>Handlebar Mechanic</p>
+        </div>
+        <div class="placeholder-box placeholder-wide reveal">
+          <span>🌆</span><p>Street Scene</p>
+        </div>
+      </div>
+
+      <div class="reflection-box reveal">
+        <h4>What I'd Do Differently</h4>
+        <p>If I started over, I'd spend more time on audio design. The sounds of Indian roads — the layered honking, the vendors, the chaos — are just as important as the visuals for immersion.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROJECT 2 -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Project 02</p>
+        <h2 class="section-title">Your Second Project</h2>
+      </div>
+      <div class="project-intro reveal">
+        <p>What was the question you were asking? Describe the core design challenge and what drove you to build this.</p>
+      </div>
+      <div class="project-hero reveal-scale">
+        <div class="placeholder-box">
+          <span>📐</span>
+          <p>Project 2 Screenshot — Add Your Image</p>
+        </div>
+      </div>
+      <div class="cards-row stagger-children" style="max-width: 700px; margin: 0 auto;">
+        <div class="card reveal">
+          <div class="card-icon">🔍</div>
+          <h3>What I Built</h3>
+          <p>Describe the project, tools used, and the core mechanic.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">💡</div>
+          <h3>What I Learned</h3>
+          <p>What broke? What surprised you? What would you carry forward?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- GAME DEV -->
+  <section class="section" id="gamedev">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Professional Work</p>
+        <h2 class="section-title">3 Years of Game Development</h2>
+      </div>
+      <div class="gamedev-row stagger-children">
+        <div class="gamedev-card reveal">
+          <div class="gamedev-img"><span>🎮 Project Screenshot</span></div>
+          <div class="gamedev-body">
+            <h3>Game Project One</h3>
+            <p>Brief description — what it was, your role, the platform.</p>
+            <div class="dq">"I made the enemy slower up close. It made players feel powerful in a way that winning never could."</div>
+          </div>
+        </div>
+        <div class="gamedev-card reveal">
+          <div class="gamedev-img"><span>🎮 Project Screenshot</span></div>
+          <div class="gamedev-body">
+            <h3>Game Project Two</h3>
+            <p>Brief description — what it was, your role, the platform.</p>
+            <div class="dq">"Add a design decision you made — not code, but a moment where you shaped the player experience."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PAINTINGS -->
+  <section class="section section-dark" id="paintings">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Beyond The Screen</p>
+        <h2 class="section-title">Paintings &amp; Drawings</h2>
+        <p class="section-subtitle">A timeline of learning to see</p>
+      </div>
+
+      <div class="paintings-timeline">
+
+        <!-- 1. Bike Drawing — Apr 2019 -->
+        <div class="painting-entry reveal">
+          <div class="painting-entry-img" onclick="openLightbox(this)">
+            <img src="assets/paintings/painting0_bike.jpg" alt="Ducati Panigale V4 pencil sketch">
+          </div>
+          <div class="painting-entry-text">
+            <span class="painting-date">April 2019</span>
+            <h3>Ducati Panigale V4</h3>
+            <p class="painting-medium">Pencil on Paper</p>
+            <p>This is where it all started. I'd been sketching cars and bikes since I was a kid, trying to capture every mechanical detail. This Ducati was one of those drawings where I sat down and didn't get up until it was done. It's not paint on canvas — just graphite and obsession.</p>
+          </div>
+        </div>
+
+        <!-- 2. Leopard — May 2019 -->
+        <div class="painting-entry reveal">
+          <div class="painting-entry-img" onclick="openLightbox(this)">
+            <img src="assets/paintings/painting3_leopard.jpg" alt="Leopard painting">
+          </div>
+          <div class="painting-entry-text">
+            <span class="painting-date">May 2019</span>
+            <h3>Leopard</h3>
+            <p class="painting-medium">Acrylic on Canvas</p>
+            <p>My personal favourite. This was one of my first real paintings — moving from pencil to paint felt like learning a new language. The spots, the textures, the way light catches fur — it taught me that details aren't decoration. They're what make something feel alive.</p>
+          </div>
+        </div>
+
+        <!-- 3. Moonlit Solitude — Oct 2020 -->
+        <div class="painting-entry reveal">
+          <div class="painting-entry-img" onclick="openLightbox(this)">
+            <img src="assets/paintings/painting4_moonlit.jpg" alt="Woman by the moonlit sea">
+          </div>
+          <div class="painting-entry-text">
+            <span class="painting-date">October 2020</span>
+            <h3>Moonlit Solitude</h3>
+            <p class="painting-medium">Acrylic on Canvas</p>
+            <p>This one came out of lockdown — long nights, a lot of silence. I wanted to paint something that felt quiet and heavy at the same time. The Bandhani dupatta was the hardest part, getting those white circles to feel hand-printed rather than stamped.</p>
+          </div>
+        </div>
+
+        <!-- 4. Hanuman — Apr 2022 -->
+        <div class="painting-entry reveal">
+          <div class="painting-entry-img" onclick="openLightbox(this)">
+            <img src="assets/paintings/painting1_hanuman.jpg" alt="Hanuman carrying Sanjivani mountain">
+          </div>
+          <div class="painting-entry-text">
+            <span class="painting-date">April 2022</span>
+            <h3>Hanuman — Sanjivani</h3>
+            <p class="painting-medium">Acrylic on Canvas · Inspired by Raja Ravi Verma</p>
+            <p>This was the painting where I discovered Raja Ravi Verma's work. The way he brought mythology to life — with real weight and emotion — completely changed how I thought about painting. I wanted Hanuman to feel powerful but grounded, divine but human. It's the most ambitious thing I've painted.</p>
+          </div>
+        </div>
+
+        <!-- 5. Soumya — Aug 2025 -->
+        <div class="painting-entry reveal">
+          <div class="painting-entry-img" onclick="openLightbox(this)">
+            <img src="assets/paintings/painting2_portrait.jpg" alt="Portrait of Soumya">
+          </div>
+          <div class="painting-entry-text">
+            <span class="painting-date">August 2025</span>
+            <h3>Soumya</h3>
+            <p class="painting-medium">Acrylic on Canvas</p>
+            <p>My latest — a portrait of my sister. Portraits are the hardest because you can't hide behind style. If the eyes are off by a millimeter, everyone knows. This one took the longest, but it's also the one where I finally felt like I could see the person, not just the shapes.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="section section-closing" id="contact">
+    <div class="container" style="text-align: center;">
+      <div class="section-header reveal">
+        <p class="section-label">Why XR. Why Now. Why Jodhpur.</p>
+        <h2 class="section-title">The Next Chapter</h2>
+      </div>
+      <div class="reveal">
+        <blockquote class="closing-quote">
+          "Games taught me to build. Design will teach me to listen. 
+          <span class="accent">XR is where both matter equally</span> — 
+          and the rules aren't written yet. I want to help write them."
+        </blockquote>
+      </div>
+      <div class="contact-links stagger-children">
+        <a href="mailto:your.email@example.com" class="contact-pill">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email
+        </a>
+        <a href="https://github.com/yourusername" target="_blank" class="contact-pill">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-pill">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <footer class="footer">© 2026 Nikhil Sharma. Designed with purpose.</footer>
+  </section>
+
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="Painting full view">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
