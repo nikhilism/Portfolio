@@ -16,7 +16,6 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#project1">Projects</a></li>
-      <li><a href="#gamedev">Game Dev</a></li>
       <li><a href="#paintings">Paintings</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -88,124 +87,95 @@
   </section>
 
 
-  <!-- PROJECT 1 -->
+  <!-- CASE STUDY: XR INDIAN ROAD SIMULATOR -->
   <section class="section" id="project1">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Featured Project</p>
-        <h2 class="section-title">XR Indian Road Simulator</h2>
-        <p class="section-subtitle">Navigating Beautiful Chaos</p>
-      </div>
-
-      <div class="project-intro reveal">
-        <p>
-          Indian roads are a sensory overload — a design problem no one has solved properly.
-          What if you could <em>experience</em> that beautiful chaos in VR, feeling every honk, 
-          every swerve, every near-miss through your hands on virtual handlebars?
-        </p>
-      </div>
-
-      <div class="project-hero reveal-scale">
-        <div class="placeholder-box">
-          <span>🎮</span>
-          <p>Simulator Screenshot — Coming Soon</p>
+        <p class="section-label">Featured Case Study</p>
+        <h2 class="section-title" style="margin-bottom: 1rem;">XR Indian Road Simulator</h2>
+        <p class="section-subtitle">A high-fidelity VR simulator built to train cognitive reflexes against real-world chaos.</p>
+        
+        <div style="margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; font-size: 0.85rem; color: var(--gray-600);">
+          <span><strong>Role:</strong> XR Developer & UX Researcher</span>
+          <span><strong>Timeline:</strong> 1 Week (Sprint)</span>
+          <span><strong>Tech:</strong> Unity XR, C#, Blosm OSM</span>
         </div>
       </div>
 
-      <div class="cards-row stagger-children">
-        <div class="card reveal">
-          <div class="card-icon">🕹️</div>
-          <h3>The Interaction</h3>
-          <p>VR controllers become handlebars. Wrist rotation maps to throttle. Physical intuition meets digital world.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon">🐄</div>
-          <h3>The World</h3>
-          <p>Cows, autos, aunties — unpredictable agents that force the player to <em>read</em> the environment.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon">🧠</div>
-          <h3>The Challenge</h3>
-          <p>Motion sickness: every speed curve, every camera movement tuned to keep immersion without nausea.</p>
+      <!-- VIDEO HERO -->
+      <div class="video-wrapper reveal-scale">
+        <video controls autoplay muted loop playsinline poster="assets/hero_bg.png">
+          <source src="assets/final_prototype.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="case-study-text reveal">
+        <h3>1. The Core Problem: The Illusion of Licensing</h3>
+        <p>In India, the driving licensing infrastructure is fundamentally disconnected from reality. Millions of riders are legally cleared to ride motorcycles simply by successfully navigating a primary "Figure-8" track on pristine, artificial roads.</p>
+        <p>The real-world scenario is vastly different. Real Indian roads are saturated with chaotic variables: deep potholes, unauthorized blind speedbreakers, stray animals, sudden barricades, and highly unpredictable, unlicensed traffic. Because riders aren't trained for these multi-modal stress factors, accident rates skyrocket.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
+          <img src="assets/problem_bad_roads.webp" alt="Bad Indian Roads" style="width: 100%; border-radius: 6px; aspect-ratio: 4/3; object-fit: cover;">
+          <img src="assets/problem_traffic.webp" alt="Heavy Traffic" style="width: 100%; border-radius: 6px; aspect-ratio: 4/3; object-fit: cover;">
+          <img src="assets/problem_cow.webp" alt="Stray Animals on Road" style="width: 100%; border-radius: 6px; aspect-ratio: 4/3; object-fit: cover;">
         </div>
       </div>
 
-      <div class="screenshots-row stagger-children">
-        <div class="placeholder-box placeholder-wide reveal">
-          <span>🏍️</span><p>Handlebar Mechanic</p>
-        </div>
-        <div class="placeholder-box placeholder-wide reveal">
-          <span>🌆</span><p>Street Scene</p>
+      <div class="case-study-text reveal">
+        <h3>2. The Solution & Ideation</h3>
+        <p>To mitigate these accidents, we need safe, accessible scenario exposure. <strong>The objective of this project was to establish a high-fidelity VR simulator that allows Indian riders to train their cognitive reflexes against real-world chaos from the safety of their homes.</strong></p>
+        <p>Instead of relying on gamepads—which build zero real-world muscle memory—I mapped out a completely intuitive XR control scheme. In my ideation phase, I conceptualized turning the standard VR controllers into 1:1 physical handlebars, tracking hand position to actively balance the bike, twist for acceleration, and pull for braking.</p>
+        
+        <div style="margin-top: 2.5rem; text-align: center;">
+          <img src="assets/sketch_vr.jpg" alt="VR Handlebar Ideation Sketch" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; font-style: italic;">Initial paper ideation resolving the cognitive mapping of standard VR controllers to physical scooter handlebars.</p>
         </div>
       </div>
 
-      <div class="reflection-box reveal">
-        <h4>What I'd Do Differently</h4>
-        <p>If I started over, I'd spend more time on audio design. The sounds of Indian roads — the layered honking, the vendors, the chaos — are just as important as the visuals for immersion.</p>
+      <div class="case-study-text reveal">
+        <h3>3. Prototyping Embodied Interactions</h3>
+        <p>Prototyping this in Unity required abandoning standard "arcade" driving mechanics in favor of high-fidelity, embodied vehicle physics.</p>
+        <ul>
+          <li><strong>VR Handlebar Dynamics:</strong> By locking the user's virtual hands to the bike's handlebars, the XR controllers act as dual throttles and brakes. The spatial translation of pulling the controllers left or right handles the leaning and balancing of the chassis, offering a 1:1 cognitive mapping to riding an actual bike.</li>
+          <li><strong>Accurate Drivetrain:</strong> I engineered a realistic multi-gear system with engine-lugging mechanics. If a rider fails to downshift at low speeds—a common mistake for beginners that leads to stalling in intersections—the engine physically shudders, shaking the VR camera to train spatial awareness of the vehicle's state.</li>
+        </ul>
       </div>
-    </div>
-  </section>
 
-
-  <!-- PROJECT 2 -->
-  <section class="section section-dark">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Project 02</p>
-        <h2 class="section-title">Your Second Project</h2>
-      </div>
-      <div class="project-intro reveal">
-        <p>What was the question you were asking? Describe the core design challenge and what drove you to build this.</p>
-      </div>
-      <div class="project-hero reveal-scale">
-        <div class="placeholder-box">
-          <span>📐</span>
-          <p>Project 2 Screenshot — Add Your Image</p>
-        </div>
-      </div>
-      <div class="cards-row stagger-children" style="max-width: 700px; margin: 0 auto;">
-        <div class="card reveal">
-          <div class="card-icon">🔍</div>
-          <h3>What I Built</h3>
-          <p>Describe the project, tools used, and the core mechanic.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon">💡</div>
-          <h3>What I Learned</h3>
-          <p>What broke? What surprised you? What would you carry forward?</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- GAME DEV -->
-  <section class="section" id="gamedev">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Professional Work</p>
-        <h2 class="section-title">3 Years of Game Development</h2>
-      </div>
-      <div class="gamedev-row stagger-children">
-        <div class="gamedev-card reveal">
-          <div class="gamedev-img"><span>🎮 Project Screenshot</span></div>
-          <div class="gamedev-body">
-            <h3>Game Project One</h3>
-            <p>Brief description — what it was, your role, the platform.</p>
-            <div class="dq">"I made the enemy slower up close. It made players feel powerful in a way that winning never could."</div>
+      <div class="case-study-text reveal">
+        <h3>4. Art Direction for Cognitive Load</h3>
+        <p>When importing accurate 1:1 map data of Jodhpur, Ajmer, and Gandhinagar into VR, I made a critical UX decision to avoid photorealism. In a highly chaotic VR environment, photorealistic texturing overwhelms the visual cortex, leading to motion sickness.</p>
+        <p>I developed a <strong>"Sable-inspired" minimalist, flat-shaded art direction</strong>. By utilizing flat architectural coloring (such as iconic Jodhpur Blue) masked with thin ink borders, I radically reduced background visual noise. This empowers the rider's brain to instantly distinguish between safe street geometry and incoming active hazards.</p>
+        
+        <div class="media-grid-2">
+          <div>
+            <img src="assets/screenshot_1.png" alt="Raw Blosm Unity Map Import" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); aspect-ratio: 4/3; object-fit: cover;">
+            <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.5rem; text-align: center;">Raw Map Data import</p>
           </div>
-        </div>
-        <div class="gamedev-card reveal">
-          <div class="gamedev-img"><span>🎮 Project Screenshot</span></div>
-          <div class="gamedev-body">
-            <h3>Game Project Two</h3>
-            <p>Brief description — what it was, your role, the platform.</p>
-            <div class="dq">"Add a design decision you made — not code, but a moment where you shaped the player experience."</div>
+          <div>
+            <img src="assets/screenshot_2.png" alt="Sable Architectural Styling" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); aspect-ratio: 4/3; object-fit: cover;">
+            <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.5rem; text-align: center;">Stylized Application</p>
           </div>
         </div>
       </div>
+
+      <div class="case-study-text reveal">
+        <h3>5. UI Evolution: Removing the Arcades</h3>
+        <p>Early iterations of the simulator featured heavy, blocky diegetic overlays (like giant speed dials hovering in space). Iterative testing revealed that opaque UI blocked critical spatial threats in the rider's peripheral vision. I overhauled the Canvas structure, stripping away all block backgrounds in favor of an architectural typographic hierarchy that sits flush against the corners of the screen—ensuring nothing stands between the rider and the road.</p>
+        
+        <div style="margin-top: 2.5rem; text-align: center;">
+          <img src="assets/screenshot_3.png" alt="HUD Application" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; font-style: italic;">The new transparent, typographic minimal-HUD.</p>
+        </div>
+      </div>
+      
+      <div class="reflection-box reveal" style="margin-top: 4rem;">
+        <h4>Reflection</h4>
+        <p>The final prototype successfully bridges the gap between static licensing tests and the unpredictable reality of Indian driving. It trains muscle memory, enforces cognitive hazard response, and delivers a comfortable, deeply stylized VR experience designed to save lives on the road.</p>
+      </div>
+
     </div>
   </section>
+
 
 
   <!-- PAINTINGS -->

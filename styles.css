@@ -468,6 +468,92 @@ a { color: inherit; text-decoration: none; }
 }
 .reflection-box p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.7; }
 
+/* ═══════════ CASE STUDY UTILITIES ═══════════ */
+.case-study-text {
+  max-width: 780px;
+  margin: 0 auto 3rem;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--gray-600);
+}
+.case-study-text h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 2.5rem 0 1rem;
+}
+.case-study-text p {
+  margin-bottom: 1.2rem;
+}
+.case-study-text ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  list-style-type: square;
+}
+.case-study-text li {
+  margin-bottom: 0.5rem;
+}
+.case-study-text strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  background: var(--dark);
+  aspect-ratio: 16/9;
+  position: relative;
+}
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.placeholder-img {
+  width: 100%;
+  background: var(--cream);
+  border: 1.5px dashed var(--gray-200);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  padding: 3rem;
+  text-align: center;
+}
+.placeholder-img span {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--gray-600);
+}
+.placeholder-16-9 { aspect-ratio: 16/9; }
+.placeholder-4-3 { aspect-ratio: 4/3; }
+
+.placeholder-hint {
+  font-family: monospace;
+  font-size: 0.7rem;
+  background: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 1rem;
+  border: 1px solid var(--gray-200);
+}
+
 
 /* ═══════════ GAME DEV ═══════════ */
 .gamedev-row {
