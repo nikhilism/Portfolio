@@ -110,61 +110,70 @@
       </div>
 
       <div class="case-study-text reveal">
-        <h3>1. The Core Problem: The Illusion of Licensing</h3>
-        <p>In India, the driving licensing infrastructure is fundamentally disconnected from reality. Millions of riders are legally cleared to ride motorcycles simply by successfully navigating a primary "Figure-8" track on pristine, artificial roads.</p>
-        <p>The real-world scenario is vastly different. Real Indian roads are saturated with chaotic variables: deep potholes, unauthorized blind speedbreakers, stray animals, sudden barricades, and highly unpredictable, unlicensed traffic. Because riders aren't trained for these multi-modal stress factors, accident rates skyrocket.</p>
+        <h3>1. The Core Problem</h3>
+        <p>Getting a license in India often feels completely disconnected from what it's actually like to ride here. Millions of riders pass primary "Figure-8" tracks on pristine, artificial roads, and are practically immediately cleared for the real world.</p>
+        <p>But the real world is chaotic. We deal with deep potholes, blind sudden speedbreakers, wandering animals, and completely unpredictable traffic. Traditional tests don't prep riders for any of this, which is a huge factor in why accident rates skyrocket on Indian roads.</p>
         
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
-          <img src="assets/problem_bad_roads.webp" alt="Bad Indian Roads" style="width: 100%; border-radius: 6px; aspect-ratio: 4/3; object-fit: cover;">
-          <img src="assets/problem_traffic.webp" alt="Heavy Traffic" style="width: 100%; border-radius: 6px; aspect-ratio: 4/3; object-fit: cover;">
-          <img src="assets/problem_cow.webp" alt="Stray Animals on Road" style="width: 100%; border-radius: 6px; aspect-ratio: 4/3; object-fit: cover;">
+          <img src="assets/bad-roads-2.webp" alt="Bad Indian Roads" style="width: 100%; border-radius: 6px; aspect-ratio: 4/3; object-fit: cover;">
+          <img src="assets/traffic-jam-in-pune-maharashtra-india.webp" alt="Heavy Traffic" style="width: 100%; border-radius: 6px; aspect-ratio: 4/3; object-fit: cover;">
+          <img src="assets/pune-india-an-abandoned-cow-seen-in-the-middle-of-the-road-causing-trouble-to-the-motorists.webp" alt="Stray Animals on Road" style="width: 100%; border-radius: 6px; aspect-ratio: 4/3; object-fit: cover;">
         </div>
       </div>
 
       <div class="case-study-text reveal">
-        <h3>2. The Solution & Ideation</h3>
-        <p>To mitigate these accidents, we need safe, accessible scenario exposure. <strong>The objective of this project was to establish a high-fidelity VR simulator that allows Indian riders to train their cognitive reflexes against real-world chaos from the safety of their homes.</strong></p>
-        <p>Instead of relying on gamepads—which build zero real-world muscle memory—I mapped out a completely intuitive XR control scheme. In my ideation phase, I conceptualized turning the standard VR controllers into 1:1 physical handlebars, tracking hand position to actively balance the bike, twist for acceleration, and pull for braking.</p>
+        <h3>2. The Fix: A Safe Space to Fail</h3>
+        <p>To really help riders build those critical reflexes, we need a way to expose them to this chaos safely. <strong>That's where this project comes in: a high-fidelity VR simulator built to let Indian riders train against real-world street scenarios right from their living room.</strong></p>
+        <p>I knew right away that gamepads wouldn't cut it—they simply don't teach you how to handle a physical bike. While brainstorming, I decided to take standard VR controllers and treat them as 1:1 physical handlebars. You track hand position to balance, twist to accelerate, and pull to brake. To further enforce realism, I integrated a physical rope connecting the two VR controllers. The system is designed so that the setup only functions as a handlebar when this rope is physically pulled taut. This tension trains the rider's muscles to maintain a firm and proper grip as they would on a real vehicle.</p>
         
         <div style="margin-top: 2.5rem; text-align: center;">
-          <img src="assets/sketch_vr.jpg" alt="VR Handlebar Ideation Sketch" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; font-style: italic;">Initial paper ideation resolving the cognitive mapping of standard VR controllers to physical scooter handlebars.</p>
+          <img src="assets/handlebar controllers.jpeg" alt="VR Handlebar Ideation Sketch" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; font-style: italic;">Initial paper ideation figuring out how to map standard VR controllers to physical scooter handlebars.</p>
         </div>
       </div>
 
       <div class="case-study-text reveal">
-        <h3>3. Prototyping Embodied Interactions</h3>
-        <p>Prototyping this in Unity required abandoning standard "arcade" driving mechanics in favor of high-fidelity, embodied vehicle physics.</p>
+        <h3>3. Nailing the Physics (and the Feel)</h3>
+        <p>Before even thinking about how the game looked, I had to get the bike feeling exactly right. Standard arcade controls weren't going to cut it. I built a bare-bones testing level to focus purely on physics and getting the bike to handle like a real machine.</p>
+        
+        <div style="margin-top: 2rem; margin-bottom: 2rem; text-align: center;">
+          <img src="assets/basic handsrawn map.png" alt="Physics Testing Prototype" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.5rem; font-style: italic;">The bare-bones prototyping map where I tested the leaning mechanics and mapped out the gameplay.</p>
+        </div>
+
         <ul>
-          <li><strong>VR Handlebar Dynamics:</strong> By locking the user's virtual hands to the bike's handlebars, the XR controllers act as dual throttles and brakes. The spatial translation of pulling the controllers left or right handles the leaning and balancing of the chassis, offering a 1:1 cognitive mapping to riding an actual bike.</li>
-          <li><strong>Accurate Drivetrain:</strong> I engineered a realistic multi-gear system with engine-lugging mechanics. If a rider fails to downshift at low speeds—a common mistake for beginners that leads to stalling in intersections—the engine physically shudders, shaking the VR camera to train spatial awareness of the vehicle's state.</li>
+          <li><strong>Real Handlebar Dynamics:</strong> By locking your virtual hands to the bike and translating those movements into leaning and balancing, it suddenly felt like riding a real bike.</li>
+          <li><strong>Engine Feedback:</strong> I even added realistic gears and engine lugging. If you forget to downshift when you slow down—a classic beginner mistake—the whole bike shudders and the camera shakes. It's a harsh but effective way to teach riders how to manage their speed and gears before entering a chaotic intersection.</li>
         </ul>
       </div>
 
       <div class="case-study-text reveal">
-        <h3>4. Art Direction for Cognitive Load</h3>
-        <p>When importing accurate 1:1 map data of Jodhpur, Ajmer, and Gandhinagar into VR, I made a critical UX decision to avoid photorealism. In a highly chaotic VR environment, photorealistic texturing overwhelms the visual cortex, leading to motion sickness.</p>
-        <p>I developed a <strong>"Sable-inspired" minimalist, flat-shaded art direction</strong>. By utilizing flat architectural coloring (such as iconic Jodhpur Blue) masked with thin ink borders, I radically reduced background visual noise. This empowers the rider's brain to instantly distinguish between safe street geometry and incoming active hazards.</p>
+        <h3>4. Turning Map Data into a Readable World</h3>
+        <p>Building the world started with pulling real city data directly into Blender. But dropping raw map data straight into Unity isn't enough. Initially, before applying any shaders or styling, the world looked completely flat and lifeless—just plain grey and blue blocks.</p>
         
-        <div class="media-grid-2">
+        <div class="media-grid-2" style="margin-top: 2rem; margin-bottom: 2rem;">
           <div>
-            <img src="assets/screenshot_1.png" alt="Raw Blosm Unity Map Import" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); aspect-ratio: 4/3; object-fit: cover;">
-            <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.5rem; text-align: center;">Raw Map Data import</p>
+            <img src="assets/making map in blender.png" alt="Map generation in Blender" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); aspect-ratio: 4/3; object-fit: cover;">
+            <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.5rem; text-align: center; font-style: italic;">Processing the real-world Jodhpur street data inside Blender.</p>
           </div>
           <div>
-            <img src="assets/screenshot_2.png" alt="Sable Architectural Styling" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); aspect-ratio: 4/3; object-fit: cover;">
-            <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.5rem; text-align: center;">Stylized Application</p>
+            <img src="assets/how project looked without shaders.png" alt="Environment before shaders" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); aspect-ratio: 4/3; object-fit: cover;">
+            <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.5rem; text-align: center; font-style: italic;">The initial engine view: dull geometry before applying any art direction.</p>
           </div>
         </div>
+
+        <p>I realized that in a highly chaotic VR environment, realistic graphics overwhelm the visual cortex and induce motion sickness. To fix this, I developed a clean, minimalist flat-shaded art style, utilizing the iconic Jodhpur Blue to radically reduce background visual noise. This empowers the rider's brain to quickly distinguish between static street geometry and the incoming active hazards.</p>
+        <p>Since this current build is a prototype featuring only the Jodhpur map, my next focus is bringing it fully to life. Future iterations will introduce a far more detailed environment heavily populated with dynamic traffic, stray cows, emergent potholes, and unpredictable pedestrians to complete the cognitive simulation.</p>
       </div>
 
       <div class="case-study-text reveal">
-        <h3>5. UI Evolution: Removing the Arcades</h3>
-        <p>Early iterations of the simulator featured heavy, blocky diegetic overlays (like giant speed dials hovering in space). Iterative testing revealed that opaque UI blocked critical spatial threats in the rider's peripheral vision. I overhauled the Canvas structure, stripping away all block backgrounds in favor of an architectural typographic hierarchy that sits flush against the corners of the screen—ensuring nothing stands between the rider and the road.</p>
+        <h3>5. The Final Application & UI Integration</h3>
+        <p>With the environment shaded and the physics locked in, the final piece was the User Interface. I needed to ensure that giving players their stats (speed, gear, and score) didn't block their view of the road.</p>
+        <p>I integrated a clean, transparent UI structure where crucial stats are pushed to the corners, while keeping the diegetic dashboard dials clearly visible on the bike itself. This way, the entire road remains perfectly clear in the rider's peripheral vision—allowing absolute focus on safely navigating the hazards ahead.</p>
         
         <div style="margin-top: 2.5rem; text-align: center;">
-          <img src="assets/screenshot_3.png" alt="HUD Application" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; font-style: italic;">The new transparent, typographic minimal-HUD.</p>
+          <img src="assets/how it looks now.png" alt="Final Game View with UI" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; font-style: italic;">The compiled vertical slice: featuring the flat-shaded visual style, real-world map data, and the non-intrusive UI setup.</p>
         </div>
       </div>
       
