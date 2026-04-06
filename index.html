@@ -97,8 +97,7 @@
       <div class="section-header reveal">
         <p class="section-label">Featured Case Study</p>
         <h2 class="section-title" style="margin-bottom: 1rem;">XR Indian Road Simulator</h2>
-        <p class="section-subtitle">A high-fidelity VR simulator built to train cognitive reflexes against real-world
-          chaos.</p>
+        <p class="section-subtitle">A VR simulator that puts you in the middle of real Indian road chaos — <em>before</em> you actually have to face it.</p>
 
         <div
           style="margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; font-size: 0.85rem; color: var(--gray-600);">
@@ -118,7 +117,7 @@
       <div class="case-study-text reveal">
         <h3>1. The Core Problem</h3>
         <p>Getting a license in India often feels completely disconnected from what it's actually like to ride here.
-          Millions of riders pass primary "Figure-8" tracks on pristine, artificial roads, and are practically
+          Millions of riders pass oversimplified maneuverability tests on artificial, closed-course tracks, and are practically
           immediately cleared for the real world.</p>
         <p>But the real world is chaotic. We deal with deep potholes, blind sudden speedbreakers, wandering animals, and
           completely unpredictable traffic. Traditional tests don't prep riders for any of this, which is a huge factor
@@ -136,53 +135,46 @@
       </div>
 
       <div class="case-study-text reveal">
-        <h3>2. The Fix: A Safe Space to Fail</h3>
-        <p>To really help riders build those critical reflexes, we need a way to expose them to this chaos safely.
-          <strong>That's where this project comes in: a high-fidelity VR simulator built to let Indian riders train
-            against real-world street scenarios right from their living room.</strong></p>
-        <p>I knew right away that gamepads wouldn't cut it—they simply don't teach you how to handle a physical bike.
-          While brainstorming, I decided to take standard VR controllers and treat them as 1:1 physical handlebars. You
-          track hand position to balance, twist to accelerate, and pull to brake. To further enforce realism, I
-          integrated a physical rope connecting the two VR controllers. The system is designed so that the setup only
-          functions as a handlebar when this rope is physically pulled taut. This tension trains the rider's muscles to
-          maintain a firm and proper grip as they would on a real vehicle.</p>
+        <h3>2. The Idea: A Safe Space to Fail</h3>
+        <p>The answer felt obvious once I framed it right — put riders inside the chaos before sending them into it.
+          A VR simulator where you can dump the bike, miss the speedbreaker, freeze at the intersection, and start over.
+          No injuries. Just learning.</p>
+        <p>The first thing I knew for sure: gamepads wouldn't work. A thumbstick doesn't teach your wrists anything.
+          So I redesigned the input entirely — standard VR controllers become handlebars. You lean to steer, twist
+          to accelerate, pull to brake. Then I took it one step further: I tied the two controllers together with a
+          physical rope. When you hold them properly, the rope goes taut — just like gripping real handlebars. Go slack,
+          and the controls stop responding. It's a small thing, but it completely changes how your body holds itself.</p>
 
         <div style="margin-top: 2.5rem; text-align: center;">
           <img src="assets/handlebar controllers.jpeg" alt="VR Handlebar Ideation Sketch"
             style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; font-style: italic;">Initial paper
-            ideation figuring out how to map standard VR controllers to physical scooter handlebars.</p>
+          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; font-style: italic;">Early sketches figuring out how to turn standard VR controllers into something that actually feels like a scooter.</p>
         </div>
       </div>
 
       <div class="case-study-text reveal">
         <h3>3. Nailing the Physics (and the Feel)</h3>
-        <p>Before even thinking about how the game looked, I had to get the bike feeling exactly right. Standard arcade
-          controls weren't going to cut it. I built a bare-bones testing level to focus purely on physics and getting
-          the bike to handle like a real machine.</p>
+        <p>Before any of the city building, before any visuals, I just needed the bike to <em>feel</em> right.
+          I made a dead-simple test map — just a flat plane with a few turns — and spent most of that time riding
+          around in circles, tuning until it stopped feeling like an arcade game.</p>
 
         <div style="margin-top: 2rem; margin-bottom: 2rem; text-align: center;">
           <img src="assets/basic handsrawn map.png" alt="Physics Testing Prototype"
             style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.5rem; font-style: italic;">The bare-bones
-            prototyping map where I tested the leaning mechanics and mapped out the gameplay.</p>
+          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.5rem; font-style: italic;">The scrappy test map where I spent most of the first two days just getting the lean to feel honest.</p>
         </div>
 
         <ul>
-          <li><strong>Real Handlebar Dynamics:</strong> By locking your virtual hands to the bike and translating those
-            movements into leaning and balancing, it suddenly felt like riding a real bike.</li>
-          <li><strong>Engine Feedback:</strong> I even added realistic gears and engine lugging. If you forget to
-            downshift when you slow down—a classic beginner mistake—the whole bike shudders and the camera shakes. It's
-            a harsh but effective way to teach riders how to manage their speed and gears before entering a chaotic
-            intersection.</li>
+          <li><strong>Handlebar Leaning:</strong> Locking your virtual hands to the bike and using hand position to
+            steer — it sounds simple, but the moment it clicked, it genuinely felt like riding a real bike.</li>
+          <li><strong>Engine Lugging:</strong> Forget to downshift as you slow down — the bike shudders and the
+            camera shakes. Annoying in the sim. Exactly what happens in real life, which is the whole point.</li>
         </ul>
       </div>
 
       <div class="case-study-text reveal">
-        <h3>4. Turning Map Data into a Readable World</h3>
-        <p>Building the world started with pulling real city data directly into Blender. But dropping raw map data
-          straight into Unity isn't enough. Initially, before applying any shaders or styling, the world looked
-          completely flat and lifeless—just plain grey and blue blocks.</p>
+        <h3>4. Making the World Actually Feel Like Something</h3>
+        <p>I started by pulling real Jodhpur street data into Blender and importing it into Unity. Which sounds great — until you see it. Raw map data is just grey boxes and flat roads. No sense of place, no character, nothing. It looked more like a loading screen than a city.</p>
 
         <div class="media-grid-2" style="margin-top: 2rem; margin-bottom: 2rem;">
           <div>
@@ -201,37 +193,32 @@
           </div>
         </div>
 
-        <p>I realized that in a highly chaotic VR environment, realistic graphics overwhelm the visual cortex and induce
-          motion sickness. To fix this, I developed a clean, minimalist flat-shaded art style, utilizing the iconic
-          Jodhpur Blue to radically reduce background visual noise. This empowers the rider's brain to quickly
-          distinguish between static street geometry and the incoming active hazards.</p>
-        <p>Since this current build is a prototype featuring only the Jodhpur map, my next focus is bringing it fully to
-          life. Future iterations will introduce a far more detailed environment heavily populated with dynamic traffic,
-          stray cows, emergent potholes, and unpredictable pedestrians to complete the cognitive simulation.</p>
+        <p>I tried realistic textures first. It looked bad and made me motion sick within minutes — which, in VR, is a design failure, not a hardware problem. Too much visual noise makes your brain work overtime just to parse the scene, before a single hazard even shows up.</p>
+        <p>So I stripped it back. Flat shading, bold outlines, and Jodhpur's own Blue as the base colour for the buildings. The city starts reading like itself immediately — and more importantly, anything moving stands out. Your eye goes straight to the cow that just stepped off the footpath.</p>
+        <p>This build only covers the Jodhpur map for now. Next comes the real chaos: live traffic, stray animals, sudden pedestrians, potholes that appear right when you least expect them.</p>
       </div>
 
       <div class="case-study-text reveal">
-        <h3>5. The Final Application & UI Integration</h3>
-        <p>With the environment shaded and the physics locked in, the final piece was the User Interface. I needed to
-          ensure that giving players their stats (speed, gear, and score) didn't block their view of the road.</p>
-        <p>I integrated a clean, transparent UI structure where crucial stats are pushed to the corners, while keeping
-          the diegetic dashboard dials clearly visible on the bike itself. This way, the entire road remains perfectly
-          clear in the rider's peripheral vision—allowing absolute focus on safely navigating the hazards ahead.</p>
+        <h3>5. The UI — Staying Out of the Way</h3>
+        <p>Once the world felt right, I had one last thing to figure out: where does the information go? Speed, gear,
+          score — the rider needs all of it, but none of it should eat up their field of view on a busy junction.</p>
+        <p>I pushed the stats to the far corners and kept the dashboard dials right on the bike where you'd naturally
+          glance anyway. The road stays clear. Your eye doesn't have to split between a HUD and the auto that just
+          cut you off.</p>
 
         <div style="margin-top: 2.5rem; text-align: center;">
           <img src="assets/how it looks now.png" alt="Final Game View with UI"
             style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; font-style: italic;">The compiled
-            vertical slice: featuring the flat-shaded visual style, real-world map data, and the non-intrusive UI setup.
+          <p style="font-size: 0.8rem; color: var(--gray-400); margin-top: 0.8rem; font-style: italic;">The final build — flat-shaded Jodhpur streets, real map geometry, and a UI that gets out of the rider's way.
           </p>
         </div>
       </div>
 
       <div class="reflection-box reveal" style="margin-top: 4rem;">
         <h4>Reflection</h4>
-        <p>The final prototype successfully bridges the gap between static licensing tests and the unpredictable reality
-          of Indian driving. It trains muscle memory, enforces cognitive hazard response, and delivers a comfortable,
-          deeply stylized VR experience designed to save lives on the road.</p>
+        <p>What started as a frustration — watching riders get licensed without ever seeing real traffic — turned into
+          something I genuinely believe in. It's not finished. But the core of it works: you come out of a session
+          more aware, more tense in the right places, your hands remembering what it felt like to hold on.</p>
       </div>
 
     </div>
@@ -345,21 +332,21 @@
         </blockquote>
       </div>
       <div class="contact-links stagger-children">
-        <a href="mailto:your.email@example.com" class="contact-pill">
+        <a href="mailto:nikhilism114@gmail.com" class="contact-pill">
           <svg viewBox="0 0 24 24" width="16" height="16">
             <path fill="currentColor"
               d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
           </svg>
           Email
         </a>
-        <a href="https://github.com/yourusername" target="_blank" class="contact-pill">
+        <a href="https://github.com/nikhilism" target="_blank" class="contact-pill">
           <svg viewBox="0 0 24 24" width="16" height="16">
             <path fill="currentColor"
               d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
           </svg>
           GitHub
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-pill">
+        <a href="https://linkedin.com/in/nikhilism123" target="_blank" class="contact-pill">
           <svg viewBox="0 0 24 24" width="16" height="16">
             <path fill="currentColor"
               d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
